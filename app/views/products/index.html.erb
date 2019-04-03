@@ -1,0 +1,20 @@
+<h1>HOME PAGE!</h1>
+
+<form action="/cart" method="POST">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label>Item:</label>
+  <input type="text" name="product">
+  <input type="submit" value="add to cart">
+</form>
+
+<% if cart.empty?%>
+<h3>There are currently no items in your cart</h3>
+
+<% else %>
+<h3>Current Cart</h3>
+<% cart.each do |item| %>
+<ul>
+  <li><%= item %></li>
+</ul>
+<% end %>
+<% end %>
